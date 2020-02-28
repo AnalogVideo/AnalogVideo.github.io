@@ -1,0 +1,77 @@
+ul 
+{ 
+    list-style-type: none;
+    padding: 0.5em; /*Do not delete, it hides the spaces of the non-visible bulleted list*/
+    background-color: antiquewhite;
+}
+
+li
+{ 
+
+    border: 5px solid black;
+    text-align: center;
+    width: auto;
+    padding: 0.5em;
+}
+
+#nameList
+{
+    width: 80%;
+    padding: 0.5em;
+    padding-bottom: 100%;
+    margin: 0 auto;
+    background-color: white;
+    
+}
+
+#topOrder
+{
+    background-color:firebrick;
+    text-decoration: overline underline;
+    text-shadow: -1px 0 lightgray, 0 1px lightgray, 1px 0 lightgray, 0 -1px lightgray;
+}
+
+label
+{
+    color: greenyellow;
+    text-shadow: -1px 0 dimgray, 0 1px dimgray, 1px 0 dimgray, 0 -1px dimgray;
+}
+
+#banner
+{
+    background-color: skyblue;
+    text-align: center;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+body
+{
+    background-image: url("mainBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Add a light grey background color on hover */
+ul li:hover 
+{
+    background-color: lightgray;
+}
+
+/* Style the close button (span) */
+.close 
+{
+    padding: 0.5em 0.5em;
+    display: inline;
+    float:right;
+    
+}
+
+.close:hover 
+{
+    background: #bbb;
+}
+
+#sortButton
+{
+    float: right;
+}
