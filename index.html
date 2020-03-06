@@ -78,7 +78,7 @@
                     shouldSwitch = false;
                     /* check if the next item should
                     switch place with the current item: */
-                    console.log(b[i].querySelector("#init").value);
+                    //console.log(b[i].querySelector("#init").value);
                     if(Number(b[i].querySelector("#init").value) < Number(b[i + 1].querySelector("#init").value)) 
                     {
                     /* if next item is numerically
@@ -97,6 +97,47 @@
                 }
             }
         }
+        
+        var tracker = -1;
+        var mainPlayer;
+        var players;
+        var checkLength = -99;
+        function highlightList(value) 
+        {
+            players = document.getElementById("sortable").getElementsByTagName("LI")
+            players = Array.from(players);
+            players.shift();
+            
+            if(checkLength != players.length)
+            {
+                checkLength = players.length;
+                mainPlayer.style.backgroundColor = "antiquewhite";
+            }
+            
+            mainPlayer = players[tracker]; //add .querySelector("#name").value to get name
+            
+            if(value == 1)
+            {
+                tracker = tracker - 1;
+            }
+            if(value == 0)
+            {
+                tracker = tracker + 1;
+            }
+            if(tracker > players.length - 1)
+            {
+                tracker = 0;        
+            }
+            if(tracker < 0 )
+            {
+                tracker = players.length - 1;
+            }
+            mainPlayer.style.backgroundColor = "antiquewhite";
+            mainPlayer = players[tracker]
+            mainPlayer.style.backgroundColor = "red";
+
+        }
+        
     </script>
 </head>
     
@@ -108,11 +149,20 @@
     
     <br>
     
+    
+    
+    <div id="sidenav">
+        <ul>
+            <li><button onclick="highlightList(1)" id="upButton">Up</button></li>
+            <li><button onclick="highlightList(0)" id="downButton">Down</button></li>
+        </ul>
+    </div>
+    
     <div id=nameList>
         <ul>
             <li id="draggable" class="ui-state-highlight">
                 <label>Name:</label>
-                <input type="text">
+                <input type="text" id="name">
                 <label>Initiative:</label>
                 <input type="text" id="init">
                 <br>
@@ -127,6 +177,8 @@
         <ul id="sortable">
             <li class="ui-state-default" id=topOrder>
                 TOP OF THE TURN ORDER
+                <button onclick="highlightList(0)" id="downButton">Down</button>
+                <button onclick="highlightList(1)" id="upButton">Up</button>
                 <button onclick="sortList()" id="sortButton">Sort</button>
             </li>
         </ul>

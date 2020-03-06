@@ -1,11 +1,11 @@
-ul 
+#nameList ul 
 { 
     list-style-type: none;
     padding: 0.5em; /*Do not delete, it hides the spaces of the non-visible bulleted list*/
     background-color: antiquewhite;
 }
 
-li
+#nameList li
 { 
 
     border: 5px solid black;
@@ -51,13 +51,11 @@ body
     background-size: 100% 100%;
 }
 
-/* Add a light grey background color on hover */
 ul li:hover 
 {
     background-color: lightgray;
 }
 
-/* Style the close button (span) */
 .close 
 {
     padding: 0.5em 0.5em;
@@ -71,7 +69,26 @@ ul li:hover
     background: #bbb;
 }
 
-#sortButton
+#nameList button
 {
     float: right;
+}
+
+#sidenav
+{
+    right: 0;
+    margin-right: 2%;
+    margin-top: 10%;
+    position: fixed;
+}
+
+#sidenav ul
+{
+    list-style-type: none;
+    text-align: center;
+}
+
+#sidenav button
+{
+    padding: 10%;
 }
