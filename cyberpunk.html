@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AnalogVideo's Cyberpunk Auto Roller</title>
+    <link rel="stylesheet" href="cyberpunkStyle.css">
+    
+    <script>
+        var listNum = 1;
+        function autoRoller(gun, numD6, damMod) 
+        {
+            var numLocation = Math.floor(Math.random() * 10) + 1;
+            var hitLocation = " ";
+            if (numLocation == 1)
+            {
+                hitLocation = "Head"    
+            }
+            else if (numLocation == 2 || numLocation == 3 || numLocation == 4)
+            {
+                hitLocation = "Torso"    
+            }
+            else if (numLocation == 5)
+            {
+                hitLocation = "R.Arm"    
+            }
+            else if (numLocation == 6)
+            {
+                hitLocation = "L.Arm"    
+            }
+            else if (numLocation == 7 || numLocation == 8)
+            {
+                hitLocation = "R.Leg"    
+            }
+            else if (numLocation == 9 || numLocation == 10)
+            {
+                hitLocation = "L.Leg"    
+            }
+            else
+            {
+                hitLocation = "Error I fucked up coding this somehow"        
+            }
+            
+            var totalDamage = 0;
+            var damageNums = "";
+            for(i = 0; i < numD6; i++)
+            {
+                var damage = 0;
+                damage = (Math.floor(Math.random() * 6) + 1);
+                damageNums = damageNums + damage+ ", ";
+                totalDamage = totalDamage + damage;
+            }
+            totalDamage = totalDamage + damMod;
+            var damageLog = document.getElementById("damageLog");
+            damageLog.appendChild(document.createElement('br'));
+            var text = document.createTextNode(listNum + ". " + gun + "        |       Hit Location: (" + numLocation + ") " + hitLocation + "       |       Total Damage: " + totalDamage + "       |       Rolls: " + damageNums + "      |       Damage Mod: +" + damMod);
+            damageLog.appendChild(text);
+            listNum++;
+        }
+    </script>
+</head>  
+    
+<body>
+    <h1>Cyberpunk Gun Dice Roller</h1>
+    <div>
+        <h2>Light Auto Pistols</h2>
+        <ul>
+        <li><button onclick="autoRoller('BudgetArms C-31',1,0)">BudgetArms C-31</button></li>
+        <li><button onclick="autoRoller('Dai Lung Cybermag 15',1,1)">Dai Lung Cybermag 15</button></li>
+        <li><button onclick="autoRoller('Federated Arms X-22',1,1)">Federated Arms X-22</button></li>
+        </ul>
+        
+        <h2>Medium Auto Pistols</h2>
+        <ul>
+        <li><button onclick="autoRoller('Militech Arms Avenger',2,1)">Militech Arms Avenger</button></li>
+        <li><button onclick="autoRoller('Dai Lung Streetmaster',2,3)">Dai Lung Streetmaster</button></li>
+        <li><button onclick="autoRoller('Federated Arms X-9mm',2,1)">Federated Arms X-9mm</button></li>
+        </ul>
+        
+        <h2>Heavy Auto Pistols</h2>
+        <ul>
+        <li><button onclick="autoRoller('BudgetArms Auto 3',3,0)">BudgetArms Auto 3</button></li>
+        <li><button onclick="autoRoller('Sternmeyer Type 35',3,0)">Sternmeyer Type 35</button></li>
+        </ul>
+        
+        <h2>Very Heavy Auto Pistols</h2>
+        <ul>
+        <li><button onclick="autoRoller('Armalite 44',4,1)">Armalite 44</button></li>
+        <li><button onclick="autoRoller('Colt AMT Model 2000',4,1)">Colt AMT Model 2000</button></li>
+        </ul>
+        
+        <h2>Light Submachine Guns</h2>
+        <ul>
+        <li><button onclick="autoRoller('Uzi Miniauto 9',2,1)">Uzi Miniauto 9</button></li>
+        <li><button onclick="autoRoller('HK MP-2013',2,3)">HK MP-2013</button></li>
+        <li><button onclick="autoRoller('Fed. Arms Tech Assualt II',1,1)">Fed. Arms Tech Assualt II</button></li>
+        </ul>
+        
+        <h2>Medium Submachine Guns</h2>
+        <ul>
+        <li><button onclick="autoRoller('Arasaka Minami 10',2,3)">Arasaka Minami 10</button></li>
+        <li><button onclick="autoRoller('HK MPK-9',2,1)">HK MPK-9</button></li>
+        </ul>
+        
+        <h2>Heavy Submachine Guns</h2>
+        <ul>
+        <li><button onclick="autoRoller('Sternmeyer SMG 21',3,0)">Sternmeyer SMG 21</button></li>
+        <li><button onclick="autoRoller('HK MPK-11',4,1)">HK MPK-11</button></li>
+        <li><button onclick="autoRoller('Ingram MAC 14',4,1)">Ingram MAC 14</button></li>
+        </ul>
+        
+        <h2>Assault Rifles</h2>
+        <ul>
+        <li><button onclick="autoRoller('Militech Ronin Light Assault',5,0)">Militech Ronin Light Assault</button></li>
+        <li><button onclick="autoRoller('AKR-20 Medium Assault',5,0)">AKR-20 Medium Assault</button></li>
+        <li><button onclick="autoRoller('FN-RAL Heavy Assault',6,2)">FN-RAL Heavy Assault</button></li>
+        <li><button onclick="autoRoller('Kalishnikov A-80 Hvy. Rifle',6,2)">Kalishnikov A-80 Hvy. Rifle</button></li>
+        </ul>
+        
+        <h2>Old Guns Never Die</h1>
+        <h2>Pistols</h2>
+        <ul>
+        <li><button onclick="autoRoller('BSW Combat Magnum',2,3)">SW Combat Magnum</button></li>
+        <li><button onclick="autoRoller('Llama Commanche',4,0)">Llama Commanche</button></li>
+        <li><button onclick="autoRoller('Colt .45 Peace Maker',2,2)">Colt .45 "Peace Maker"</button></li>
+        <li><button onclick="autoRoller('Colt .38 Detective',1,2)">Colt .38 Detective</button></li>
+        <li><button onclick="autoRoller('C.O.P .357 Derringer',2,3)">C.O.P .357 Derringer</button></li>
+        </ul>
+        
+        <h2>Submachine Guns</h2>
+        <ul>
+        <li><button onclick="autoRoller('UZI',2,1)">UZI</button></li>
+        <li><button onclick="autoRoller('Vz61 Skorpion',1,0)">Vz61 Skorpion</button></li>
+        <li><button onclick="autoRoller('Ingram MAC 10',2,2)">Ingram MAC 10</button></li>
+        <li><button onclick="autoRoller('HK MP5 / MP5K',2,1)">HK MP5 / MP5K</button></li>
+        <li><button onclick="autoRoller('Thompson M1',2,2)">Thompson M1</button></li>
+        <li><button onclick="autoRoller('Bushmaster',4,0)">Bushmaster</button></li>
+        </ul>
+        
+        <h2>Rifles</h2>
+        <ul>
+        <li><button onclick="autoRoller('FN-FAL',6,2)">FN-FAL</button></li>
+        <li><button onclick="autoRoller('AK 47 / AKM / AKMS',5,0)">AK 47 / AKM / AKMS</button></li>
+        <li><button onclick="autoRoller('M-16 / M-16A2',4,0)">M-16 / M-16A2</button></li>
+        <li><button onclick="autoRoller('Styer Aug',4,0)">Styer Aug</button></li>
+        <li><button onclick="autoRoller('Winchester M70',5,1)">Winchester M70</button></li>
+        </ul>
+    </div>
+
+    <div id="logContainer">
+        <p id="damageLog">
+        This are the logs for damage:
+        </p>
+    </div>
+</body>
+</html>
